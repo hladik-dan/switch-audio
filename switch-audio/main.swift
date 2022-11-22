@@ -13,7 +13,7 @@ if (arguments.count < 2) {
     print("\t--list-input    : Shows input audio devices.")
     print("\t--list-output   : Shows output audio devices.")
     print("\t--set-input=ID  : Sets the default input to given ID.")
-    print("\t--set-output=ID : Sets the default outputz to given ID.")
+    print("\t--set-output=ID : Sets the default output to given ID.")
     
     exit(EXIT_SUCCESS)
 }
@@ -53,12 +53,12 @@ if (argument.contains("--set-input")) {
         exit(EXIT_FAILURE)
     }
     
-    guard let outputAudioDevice = outputAudioDevices.first(where: { $0.id == audioDeviceID }) else {
+    guard let inputAudioDevice = inputAudioDevices.first(where: { $0.id == audioDeviceID }) else {
         print("The AudioDeviceID doesn't exist!")
         exit(EXIT_FAILURE)
     }
     
-    outputAudioDevice.setAsDefault()
+    inputAudioDevice.setAsDefault()
     
     exit(EXIT_SUCCESS)
 }
